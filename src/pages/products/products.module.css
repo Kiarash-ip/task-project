@@ -1,0 +1,12 @@
+.filtersContainer {
+  grid-column: 1 / span 4;
+
+  .filter {
+    padding: 1rem;
+
+    h3 {
+      font-size: var(--fz-500);
+      font-weight: 500;
+    }
+  }
+}

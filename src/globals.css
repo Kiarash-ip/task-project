@@ -99,14 +99,17 @@ body {
   min-block-size: 100dvh;
 
   font-size: var(--fz-400);
-
-  > * {
-    padding-inline: var(--full-width-padding-inline);
-  }
 }
 
 .container {
   display: grid;
-  grid-template-columns: 12fr;
+  grid-template-columns: repeat(12, 1fr);
   column-gap: 1.5rem;
+
+  padding-inline: var(--full-width-padding-inline);
+}
+
+.full-width {
+  grid-column-start: 1;
+  grid-column-end: -1;
 }
