@@ -1,7 +1,8 @@
 import "@/styles/typography.css";
+import { AppRouter } from "./router";
 
 function App() {
-  return <div className="container">test</div>;
+  return <AppRouter />;
 }
 
 export default App;
