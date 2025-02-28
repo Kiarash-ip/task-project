@@ -9,4 +9,12 @@
       font-weight: 500;
     }
   }
+
+  .filterList > li:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.productsContainer {
+  grid-column: 5 / -1;
 }

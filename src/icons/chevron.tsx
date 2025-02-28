@@ -1,6 +1,6 @@
 import { SVGProps } from "react";
 
-export function ArrowDown(props: SVGProps<SVGSVGElement>) {
+export function Chevron(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="24"
@@ -17,4 +17,4 @@ export function ArrowDown(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
-export default ArrowDown;
+export default Chevron;

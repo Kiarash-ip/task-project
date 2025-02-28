@@ -1,0 +1,24 @@
+.loaderIcon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-gray-30);
+  fill: var(--color-primary);
+  animation: spin 1s linear infinite;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

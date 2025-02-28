@@ -1,0 +1,90 @@
+.card {
+  position: relative;
+
+  padding: 1rem;
+
+  box-shadow: var(--shadow-2);
+
+  border-radius: 0.5rem;
+
+  > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  .discountPercentage {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    margin-bottom: 0;
+
+    padding-inline: 6px;
+    padding-block: 4px;
+
+    font-size: var(--fz-300);
+    font-weight: 300;
+    line-height: 24px;
+
+    color: hsl(var(--color-secondary));
+    background-color: hsl(var(--color-secondary-100));
+    border-start-end-radius: 0.5rem;
+    border-end-end-radius: 0.5rem;
+  }
+
+  .thumbnail {
+    display: flex;
+    justify-content: center;
+  }
+
+  .gradientLine {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      hsla(0, 0%, 27%, 0.1) 0%,
+      hsla(0, 0%, 6%, 0.7) 60%,
+      hsla(0, 0%, 27%, 0.1) 100%
+    );
+    /* background: linear-gradient(
+      to right,
+      hsla(216, 91%, 61%, 0.3) 0%,
+      var(--color-primary-400) 60%,
+      hsla(216, 91%, 61%, 0.3) 100%
+    ); */
+  }
+
+  h4 {
+    font-size: var(--fz-300);
+    font-weight: 300;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .price {
+      display: flex;
+      flex-direction: column;
+      font-weight: 300;
+
+      & > span:first-child {
+        font-weight: 400;
+        text-decoration: line-through;
+        color: var(--color-gray-70);
+        font-size: var(--fz-200);
+      }
+    }
+
+    .rate {
+      display: flex;
+      align-items: center;
+      gap: 0.125rem;
+
+      color: var(--color-primary-500);
+      font-size: var(--fz-300);
+    }
+  }
+}

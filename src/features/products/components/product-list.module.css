@@ -1,0 +1,14 @@
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+  gap: 1rem;
+}
+
+.paginationContainer {
+  margin-block: 3.75rem;
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+}

@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 
-import ArrowDown from "@/icons/arrow-down";
+import ArrowDown from "@/icons/chevron";
 
 import styles from "./Accordion.module.css";
 

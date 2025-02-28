@@ -1,0 +1,26 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  input {
+    width: 16px;
+    height: 16px;
+    color: #2563eb;
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:focus {
+      outline: 2px solid #2563eb;
+    }
+  }
+
+  label {
+    width: 100%;
+    font-size: var(--fz-500);
+    font-weight: 300;
+  }
+}

@@ -1,4 +1,7 @@
 import MainLayout from "@/layouts/main-layout";
+import Blog from "@/pages/blog";
+import ContactUs from "@/pages/contact-us";
+import Faq from "@/pages/faq";
 import HomePage from "@/pages/home-page";
 import Products from "@/pages/products/products";
 import { createBrowserRouter, RouterProvider } from "react-router";
@@ -18,15 +21,15 @@ export function AppRouter() {
         },
         {
           path: "/blog",
-          element: <Products />,
+          element: <Blog />,
         },
         {
           path: "/contact-us",
-          element: <Products />,
+          element: <ContactUs />,
         },
         {
           path: "/faq",
-          element: <Products />,
+          element: <Faq />,
         },
       ],
     },
