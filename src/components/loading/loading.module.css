@@ -1,8 +1,8 @@
 .loaderIcon {
   width: 2rem;
   height: 2rem;
-  color: var(--color-gray-30);
-  fill: var(--color-primary);
+  color: hsl(var(--color-gray-30));
+  fill: hsl(var(--color-primary));
   animation: spin 1s linear infinite;
 }
 

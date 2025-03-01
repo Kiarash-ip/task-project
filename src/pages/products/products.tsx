@@ -1,53 +1,30 @@
 import Accordion from "@/components/ui/accordion/accordion";
 
-import styles from "./products.module.css";
 import Checkbox from "@/components/ui/checkbox/checkbox";
 import { useSearchParams } from "react-router";
 import { useCallback } from "react";
 import ProductList from "@/features/products/components/product-list";
+import useCategories from "@/features/products/hooks/useCategories";
 
-const FILTERS = [
-  {
-    id: 0,
-    label: "TV",
-    value: "tv",
-  },
-  {
-    id: 1,
-    label: "Laptop",
-    value: "laptop",
-  },
-  {
-    id: 2,
-    label: "Audio",
-    value: "audio",
-  },
-  {
-    id: 3,
-    label: "Mobile",
-    value: "mobile",
-  },
-];
+import styles from "./products.module.css";
+import { Button } from "@/components/ui/button/button";
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const values = searchParams.getAll("model") || [];
+  const category = searchParams.get("category");
+  const { data } = useCategories();
+
+  const clearFiltersHandler = useCallback(() => {
+    setSearchParams((prev) => {
+      prev.delete("category");
+      return prev;
+    });
+  }, [setSearchParams]);
 
   const filtersChangeHandler = useCallback(
-    (key: string, value: string) => {
+    (value: string) => {
       setSearchParams((prev) => {
-        let current_queries = prev.getAll(key) || [];
-        if (current_queries.includes(value)) {
-          prev.delete(key);
-          let newQueries = current_queries.filter((query) => query !== value);
-          newQueries.forEach((query) => {
-            if (query) {
-              prev.append(key, query);
-            }
-          });
-        } else {
-          prev.append(key, value);
-        }
+        prev.set("category", value);
         return prev;
       });
     },
@@ -56,19 +33,29 @@ export default function Products() {
 
   return (
     <>
+      <title>Products</title>
       <div className={styles.filtersContainer}>
         <div className={styles.filter}>
           <h3>Filters</h3>
+          {category && (
+            <Button
+              variant="primary"
+              onClick={clearFiltersHandler}
+              size="medium"
+            >
+              Clear all
+            </Button>
+          )}
         </div>
         <Accordion>
           <Accordion.AccordionItem title="Category">
             <ul className={styles.filterList}>
-              {FILTERS.map((filter) => (
-                <li key={filter.id}>
+              {data?.map((cat) => (
+                <li key={cat}>
                   <Checkbox
-                    label={filter.label}
-                    checked={values.includes(String(filter.value))}
-                    onChange={() => filtersChangeHandler("model", filter.value)}
+                    label={cat}
+                    checked={category === cat}
+                    onChange={() => filtersChangeHandler(cat)}
                   />
                 </li>
               ))}
@@ -77,7 +64,7 @@ export default function Products() {
         </Accordion>
       </div>
       <div className={styles.productsContainer}>
-        <ProductList />
+        <ProductList category={category} />
       </div>
     </>
   );

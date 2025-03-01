@@ -1,3 +1,8 @@
 export default function ContactUs() {
-  return <div>ContactUs</div>;
+  return (
+    <>
+      <title>ContactUs</title>
+      <div>Blog</div>
+    </>
+  );
 }

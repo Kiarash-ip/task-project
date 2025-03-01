@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import useProduct from "../hooks/useProduct";
+import { useState } from "react";
+import useProducts from "../hooks/useProducts";
 
 import styles from "./product-list.module.css";
 import ProductCard from "./product-card";
 import Pagination from "@/components/pagination/pagination";
 import Loading from "@/components/loading/loading";
 
-export default function ProductList() {
-  const [page, setPage] = useState(1);
-  const { data, isLoading } = useProduct({ page });
+interface ProductListProps {
+  category: string | null;
+}
 
-  useEffect(() => {
-    console.log(page);
-  }, [page]);
+export default function ProductList({ category }: ProductListProps) {
+  const [page, setPage] = useState(1);
+  const { data, isLoading } = useProducts({ page, category });
 
   if (isLoading) {
     return (
@@ -28,6 +28,7 @@ export default function ProductList() {
         {data.map((product) => (
           <ProductCard
             key={product.id}
+            id={product.id}
             image={product.image}
             title={product.title}
             price={product.price}

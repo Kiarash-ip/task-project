@@ -1,3 +1,8 @@
 export default function Faq() {
-  return <div>faq</div>;
+  return (
+    <>
+      <title>Faq</title>
+      <div>Blog</div>
+    </>
+  );
 }

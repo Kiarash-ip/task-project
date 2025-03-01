@@ -1,0 +1,141 @@
+.thumbnailContainer {
+  grid-column: span 5 / span 5;
+  display: flex;
+  justify-content: center;
+}
+
+.productSummary {
+  grid-column: span 4 / span 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  & > h1 {
+    font-size: var(--fz-500);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  & > .rate {
+    background-color: hsl(var(--color-primary-500));
+    border-radius: var(--border-radius-sm);
+    padding: 0.125rem 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.25rem;
+    color: #fff;
+    font-size: 0.75rem;
+    margin-bottom: 2rem;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .summary {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    font-weight: 500;
+    font-size: var(--fz-200);
+
+    & > span {
+      padding: 0.5rem;
+    }
+
+    & > span:nth-child(2n + 1) {
+      color: hsl(var(--color-gray-70));
+    }
+
+    & > span:nth-child(2n + 1)::before {
+      content: "•";
+      margin-inline-end: 0.75rem;
+    }
+  }
+}
+
+.card {
+  width: 100%;
+
+  grid-column: span 3 / span 3;
+  place-self: start;
+
+  border-radius: var(--border-radius-md);
+
+  box-shadow: var(--shadow-1);
+
+  padding: 1.5rem;
+
+  .pricing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-weight: 500;
+
+    margin-bottom: 1rem;
+
+    & > span:first-child {
+      font-size: var(--fz-500);
+    }
+
+    .discount {
+      display: flex;
+      align-items: center;
+      color: hsl(var(--color-secondary));
+      font-size: var(--fz-300);
+    }
+  }
+
+  .button:first-of-type {
+    margin-bottom: 0.5rem;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+.tabsContainer {
+  grid-column: span 9 / span 9;
+
+  margin-block: 8rem;
+
+  .tabs {
+    border-bottom: 1px solid hsl(var(--color-gray-40));
+  }
+
+  .tabContent {
+    padding-block: 2rem;
+
+    h4 {
+      font-size: var(--fz-500);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      & > span {
+        font-size: var(--fz-400);
+        color: hsl(var(--color-gray-70));
+        padding: 1.15625rem 0.75rem;
+      }
+
+      & > span:nth-child(4n-3),
+      & > span:nth-child(4n-2) {
+        background-color: hsl(var(--color-gray-10));
+      }
+    }
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+}

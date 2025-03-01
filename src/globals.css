@@ -1,43 +1,45 @@
 :root {
-  --color-gray-100: hsl(0, 0%, 18%);
-  --color-gray-90: hsl(0, 0%, 27%);
-  --color-gray-80: hsl(0, 0%, 31%);
-  --color-gray-70: hsl(0, 0%, 44%);
-  --color-gray-60: hsl(0, 0%, 62%);
-  --color-gray-50: hsl(0, 0%, 71%);
-  --color-gray-40: hsl(0, 0%, 80%);
-  --color-gray-30: hsl(0, 0%, 93%);
-  --color-gray-20: hsl(0, 0%, 96%);
-  --color-gray-10: hsl(0, 0%, 98%);
+  --color-gray-100: 0 0 18;
+  --color-gray-90: 0 0 27;
+  --color-gray-80: 0 0 31;
+  --color-gray-70: 0 0 44;
+  --color-gray-60: 0 0 62;
+  --color-gray-50: 0 0 71;
+  --color-gray-40: 0 0 80;
+  --color-gray-30: 0 0 93;
+  --color-gray-20: 0 0 96;
+  --color-gray-10: 0 0 98;
 
-  --color-surface: hsl(0, 0%, 100%);
-  --color-text: hsl(0, 1%, 5%);
+  --color-surface: 0 0 100;
+  --color-text: 0 1 5;
 
-  --color-primary: hsl(216, 91%, 50%);
-  --color-primary-25: hsl(217, 93%, 95%);
-  --color-primary-50: hsl(216, 91%, 83%);
-  --color-primary-75: hsl(216, 91%, 72%);
-  --color-primary-100: hsl(216, 91%, 61%);
-  --color-primary-200: hsl(216, 91%, 56%);
-  --color-primary-400: hsl(216, 91%, 39%);
-  --color-primary-500: hsl(216, 92%, 28%);
-  --color-primary-600: hsl(216, 91%, 22%);
-  --color-primary-700: hsl(216, 91%, 17%);
-  --color-primary-900: hsl(216, 93%, 11%);
+  --color-primary: 216 91 50;
+  --color-primary-opposite: 0 0 100;
+  --color-primary-25: 217 93 95;
+  --color-primary-50: 216 91 83;
+  --color-primary-75: 216 91 72;
+  --color-primary-100: 216 91 61;
+  --color-primary-200: 216 91 56;
+  --color-primary-400: 216, 91 39;
+  --color-primary-500: 216 92 28;
+  --color-primary-600: 0, 0 2;
+  --color-primary-700: 216 91 17;
+  --color-primary-900: 216 93 11;
 
   --color-secondary: 21 91 50;
   --color-secondary-100: 21 93 89;
-  --color-secondary-200: hsl(21, 91%, 78%);
-  --color-secondary-300: hsl(21, 91%, 61%);
-  --color-secondary-400: hsl(21, 91%, 50%);
-  --color-secondary-500: hsl(21, 91%, 39%);
-  --color-secondary-600: hsl(21, 92%, 28%);
+  --color-secondary-200: 21 91 78;
+  --color-secondary-300: 21 91 61;
+  --color-secondary-400: 21 91 50;
+  --color-secondary-500: 21 91 39;
+  --color-secondary-600: 21 92 28;
 
-  --color-error: hsl(350, 82%, 43%);
-  --color-error-lighter: hsl(347, 66%, 94%);
+  --color-error: 350 82 43;
+  --color-primary-opposite: 0 0 100;
+  --color-error-lighter: 347 66 94;
 
-  --color-success: hsl(152, 69%, 25%);
-  --color-success-lighter: hsl(152, 70%, 89%);
+  --color-success: 152 69 25;
+  --color-success-lighter: 152 70 89;
 
   --shadow-1: -2px 2px 15px -1px hsla(0, 0%, 44%, 0.12);
   --shadow-2: -2px 2px 20px -1px hsla(0, 0%, 44%, 0.2);
@@ -61,6 +63,7 @@
 
 html {
   font-family: "Inter", system-ui;
+  scrollbar-gutter: stable;
 }
 
 input,
@@ -81,10 +84,6 @@ ul {
   list-style: none;
 }
 
-p {
-  color: var(--color-text-700);
-}
-
 a {
   color: inherit;
 
@@ -96,8 +95,8 @@ img {
 }
 
 body {
-  background-color: var(--color-surface);
-  color: var(--color-text);
+  background-color: hsl(var(--color-surface));
+  color: hsl(var(--color-text));
 
   min-block-size: 100vh;
   min-block-size: 100dvh;

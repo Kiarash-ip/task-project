@@ -1,30 +1,54 @@
 import { Product } from "@/features/types/types";
 import styles from "./product-card.module.css";
 import StarIcon from "@/icons/star-icon";
+import { percentageAmount } from "@/components/utils/utils";
+import { Button } from "@/components/ui/button/button";
+import ShoppingCart from "@/icons/shopping-cart";
+import HeartIcon from "@/icons/heart-icon";
+import { Link } from "react-router";
 
 export default function ProductCard({
   image,
   title,
   discount,
   price,
-}: Pick<Product, "image" | "title" | "price" | "discount">) {
+  id,
+}: Pick<Product, "image" | "title" | "price" | "discount" | "id">) {
   return (
     <div className={styles.card}>
-      <div className={styles.discountPercentage}>-12%</div>
-      <div className={styles.thumbnail}>
-        <img src={image} alt={`${title} picture`} height={190} />
-      </div>
+      {discount && (
+        <div className={styles.discountPercentage}>-{discount}%</div>
+      )}
+
+      <Link to={`/products/${id}`}>
+        <div className={styles.thumbnail}>
+          <img src={image} alt={`${title} picture`} height={190} />
+        </div>
+      </Link>
       <div className={styles.gradientLine} />
-      <h4>{title}</h4>
+      <h4>
+        <Link to={`/products/${id}`}>{title}</Link>
+      </h4>
       <div className={styles.footer}>
         <div className={styles.price}>
+          {discount && (
+            <span className={styles.discounted}>
+              $ {(price - percentageAmount(discount, price)).toFixed(2)}
+            </span>
+          )}
           <span>$ {price.toFixed(2)}</span>
-          <span>$ {(price - discount).toFixed(2)}</span>
         </div>
         <div className={styles.rate}>
           <StarIcon />
           4.9
         </div>
+      </div>
+      <div className={styles.actionButtons}>
+        <Button shape="outlined" variant="primary" className={styles.addToCart}>
+          <ShoppingCart />
+          Add to cart
+        </Button>
+        <HeartIcon className={styles.likeButton} />
       </div>
     </div>
   );

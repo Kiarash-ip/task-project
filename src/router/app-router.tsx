@@ -3,6 +3,7 @@ import Blog from "@/pages/blog";
 import ContactUs from "@/pages/contact-us";
 import Faq from "@/pages/faq";
 import HomePage from "@/pages/home-page";
+import ProductDetail from "@/pages/products/product-detail";
 import Products from "@/pages/products/products";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
@@ -18,6 +19,10 @@ export function AppRouter() {
         {
           path: "/products",
           element: <Products />,
+        },
+        {
+          path: "/products/:id",
+          element: <ProductDetail />,
         },
         {
           path: "/blog",
