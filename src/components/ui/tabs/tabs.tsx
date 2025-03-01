@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import styles from "./Tabs.module.css";
+import styles from "./tabs.module.css";
 import clsx from "clsx";
 
 interface TabItemProps {
