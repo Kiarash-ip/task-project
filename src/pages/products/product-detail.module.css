@@ -132,6 +132,11 @@
         background-color: hsl(var(--color-gray-10));
       }
     }
+
+    .emptyText {
+      font-size: var(--fz-200);
+      color: hsl(var(--color-gray-70));
+    }
   }
 }
 

@@ -20,10 +20,8 @@ export default function ProductCard({
         <div className={styles.discountPercentage}>-{discount}%</div>
       )}
 
-      <Link to={`/products/${id}`}>
-        <div className={styles.thumbnail}>
-          <img src={image} alt={`${title} picture`} height={190} />
-        </div>
+      <Link className={styles.thumbnail} to={`/products/${id}`}>
+        <img src={image} alt={`${title} picture`} height={190} />
       </Link>
       <div className={styles.gradientLine} />
       <h4>

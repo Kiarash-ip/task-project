@@ -1,6 +1,5 @@
 import Accordion from "@/components/ui/accordion/accordion";
 
-import Checkbox from "@/components/ui/checkbox/checkbox";
 import { useSearchParams } from "react-router";
 import { useCallback } from "react";
 import ProductList from "@/features/products/components/product-list";
@@ -8,6 +7,7 @@ import useCategories from "@/features/products/hooks/useCategories";
 
 import styles from "./products.module.css";
 import { Button } from "@/components/ui/button/button";
+import Radio from "@/components/ui/radio/radio";
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -52,10 +52,12 @@ export default function Products() {
             <ul className={styles.filterList}>
               {data?.map((cat) => (
                 <li key={cat}>
-                  <Checkbox
+                  <Radio
+                    value={cat}
                     label={cat}
                     checked={category === cat}
-                    onChange={() => filtersChangeHandler(cat)}
+                    name="category"
+                    onChange={(value) => filtersChangeHandler(value)}
                   />
                 </li>
               ))}

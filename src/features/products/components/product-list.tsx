@@ -12,7 +12,7 @@ interface ProductListProps {
 
 export default function ProductList({ category }: ProductListProps) {
   const [page, setPage] = useState(1);
-  const { data, isLoading } = useProducts({ page, category });
+  const { data, isLoading, isFetching } = useProducts({ page, category });
 
   if (isLoading) {
     return (
@@ -35,6 +35,11 @@ export default function ProductList({ category }: ProductListProps) {
             discount={product.discount}
           />
         ))}
+        {isFetching && (
+          <div className={styles.overlay}>
+            <Loading />
+          </div>
+        )}
       </div>
       <div className={styles.paginationContainer}>
         <Pagination

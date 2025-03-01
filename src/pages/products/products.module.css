@@ -11,11 +11,29 @@
     h3 {
       font-size: var(--fz-500);
       font-weight: 500;
+      line-height: 36px;
     }
   }
 
+  .filterList {
+    margin-block: 0.75rem;
+  }
+
   .filterList > li:not(:last-child) {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .filterList > li {
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--border-radius-md);
+    background-color: transparent;
+
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .filterList > li:hover {
+    background-color: hsla(var(--color-gray-20) / 0.5);
   }
 }
 

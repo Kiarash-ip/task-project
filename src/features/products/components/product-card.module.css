@@ -19,9 +19,9 @@
   &:hover > .gradientLine {
     background-image: linear-gradient(
       to right,
-      hsl(var(--color-primary-100) / 0.3) 0%,
+      hsla(var(--color-primary-100) / 0.3) 0%,
       hsl(var(--color-primary-400)) 60%,
-      hsl(var(--color-primary-400) / 0.3) 100%
+      hsla(var(--color-primary-400) / 0.3) 100%
     );
   }
 
@@ -70,11 +70,11 @@
     height: 1px;
     background-image: linear-gradient(
       to right,
-      hsla(0, 0%, 27%, 0.1) 0%,
-      hsla(0, 0%, 6%, 0.7) 60%,
-      hsla(0, 0%, 27%, 0.1) 100%
+      hsla(var(--color-gray-90) / 0.1) 0%,
+      hsl(var(--color-gray-60)) 60%,
+      hsla(var(--color-gray-90) / 0.1) 100%
     );
-    transition: background-image 0.3 ease-in-out;
+    transition: background-image 0.3s ease-in-out;
   }
 
   h4 {

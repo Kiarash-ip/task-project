@@ -9,10 +9,13 @@ interface useProductsProps {
 export default function useProducts({ page, category }: useProductsProps) {
   const [data, setData] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
 
   function fetchData(page: number = 1, category: string | null) {
     if (data.length === 0) {
       setIsLoading(true);
+    } else {
+      setIsFetching(true);
     }
     fetch(
       `https://fakestoreapi.in/api/products${
@@ -25,6 +28,7 @@ export default function useProducts({ page, category }: useProductsProps) {
         if (data.length === 0) {
           setIsLoading(false);
         }
+        setIsFetching(false);
       });
   }
 
@@ -32,5 +36,5 @@ export default function useProducts({ page, category }: useProductsProps) {
     fetchData(page, category);
   }, [page, category]);
 
-  return { data, isLoading };
+  return { data, isLoading, isFetching };
 }

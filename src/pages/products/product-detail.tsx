@@ -1,5 +1,5 @@
 import useProduct from "@/features/products/hooks/useProduct";
-import { useParams } from "react-router";
+import { useOutletContext, useParams } from "react-router";
 
 import styles from "./product-detail.module.css";
 import Loading from "@/components/loading/loading";
@@ -8,7 +8,7 @@ import StarIcon from "@/icons/star-icon";
 import DiscountPriceIcon from "@/icons/discount-price-icon";
 import { Button } from "@/components/ui/button/button";
 import Tabs from "@/components/ui/tabs/tabs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const TABS = [
   {
@@ -29,6 +29,14 @@ export default function ProductDetail() {
   const [tab, setTab] = useState(TABS[0].id);
   const { id } = useParams();
   const { data, isLoading } = useProduct(id);
+  const setTitle = useOutletContext();
+
+  useEffect(() => {
+    // @ts-ignore
+    if (data) setTitle(data.category);
+    // @ts-ignore
+    else setTitle(" ");
+  }, [JSON.stringify(data)]);
 
   function onChange(id: number) {
     setTab(id);
@@ -111,31 +119,13 @@ export default function ProductDetail() {
             {tab === TABS[1].id && (
               <div className={styles.technicalTab}>
                 <h4>Similar Products</h4>
-                <div className={styles.details}>
-                  <span>Display</span>
-                  <span>
-                    13.3-inch (diagonal) LED-backlit display with IPS technology
-                  </span>
-                  <span>Graphics</span>
-                  <span>Apple 10-core GPU</span>
-                  <span>Processor</span>
-                  <span>Apple M2 chip</span>
-                </div>
+                <p className={styles.emptyText}>No data available!</p>
               </div>
             )}
             {tab === TABS[2].id && (
               <div className={styles.technicalTab}>
                 <h4>Comments</h4>
-                <div className={styles.details}>
-                  <span>Display</span>
-                  <span>
-                    13.3-inch (diagonal) LED-backlit display with IPS technology
-                  </span>
-                  <span>Graphics</span>
-                  <span>Apple 10-core GPU</span>
-                  <span>Processor</span>
-                  <span>Apple M2 chip</span>
-                </div>
+                <p className={styles.emptyText}>No data available!</p>
               </div>
             )}
           </div>

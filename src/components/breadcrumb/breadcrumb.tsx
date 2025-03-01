@@ -3,9 +3,16 @@ import { Link, useLocation } from "react-router";
 import styles from "./breadcrumb.module.css";
 import clsx from "clsx";
 
-export default function Breadcrumb() {
+interface BreadcrumbProps {
+  title: string | null;
+}
+
+export default function Breadcrumb({ title }: BreadcrumbProps) {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
+  if (title) {
+    pathnames[pathnames.length - 1] = title;
+  }
 
   if (pathnames.length === 0) return null;
 

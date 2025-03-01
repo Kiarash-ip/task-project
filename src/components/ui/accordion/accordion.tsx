@@ -19,8 +19,8 @@ const AccordionItem = ({ title, children }: AccordionItemProps) => {
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
       >
-        <span>{title}</span>
         <ArrowDown />
+        <span>{title}</span>
       </button>
       <div className={`${styles.accordionBody} ${isOpen ? styles.open : ""}`}>
         {children}

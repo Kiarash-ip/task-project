@@ -1,4 +1,5 @@
 .products {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
   gap: 1rem;
@@ -11,4 +12,14 @@
 .loadingContainer {
   display: flex;
   justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  background-color: hsla(var(--color-gray-10) / 0.5);
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
 }
