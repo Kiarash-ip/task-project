@@ -2,7 +2,7 @@ import { ReactNode, useState } from "react";
 
 import ArrowDown from "@/icons/chevron";
 
-import styles from "./Accordion.module.css";
+import styles from "./accordion.module.css";
 
 interface AccordionItemProps {
   title: string;

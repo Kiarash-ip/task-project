@@ -1,4 +1,4 @@
-import styles from "./Radio.module.css";
+import styles from "./radio.module.css";
 
 interface RadioProps {
   value: string;
