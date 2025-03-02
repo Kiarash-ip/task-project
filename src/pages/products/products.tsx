@@ -1,7 +1,6 @@
 import Accordion from "@/components/ui/accordion/accordion";
 
 import { useSearchParams } from "react-router";
-import { useCallback } from "react";
 import ProductList from "@/features/products/components/product-list";
 import useCategories from "@/features/products/hooks/useCategories";
 
@@ -14,22 +13,19 @@ export default function Products() {
   const category = searchParams.get("category");
   const { data } = useCategories();
 
-  const clearFiltersHandler = useCallback(() => {
+  const clearFiltersHandler = () => {
     setSearchParams((prev) => {
       prev.delete("category");
       return prev;
     });
-  }, [setSearchParams]);
+  };
 
-  const filtersChangeHandler = useCallback(
-    (value: string) => {
-      setSearchParams((prev) => {
-        prev.set("category", value);
-        return prev;
-      });
-    },
-    [setSearchParams]
-  );
+  const filtersChangeHandler = (value: string) => {
+    setSearchParams((prev) => {
+      prev.set("category", value);
+      return prev;
+    });
+  };
 
   return (
     <>
