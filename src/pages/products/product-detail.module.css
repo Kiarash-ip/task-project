@@ -2,6 +2,10 @@
   grid-column: span 5 / span 5;
   display: flex;
   justify-content: center;
+
+  & > img {
+    object-fit: contain;
+  }
 }
 
 .productSummary {
